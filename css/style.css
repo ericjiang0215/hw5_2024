@@ -1,5 +1,8 @@
+/* Import the Poppins font from Google Fonts, ensuring all weights and styles are available. */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* General body styles, setting the Poppins font as the primary font, 
+a fallback background color, and using an image for the background. */
   body{
     margin: 0;
     padding: 0;
@@ -9,6 +12,8 @@
     background-color: #f1f1f1;
   }
 
+  /* Styles for the header element directly inside the body, 
+  implementing flexbox for layout. */
   body > header{
     display: flex;
     flex-direction: column;
@@ -19,6 +24,8 @@
     margin-bottom:20px
   }
 
+  /* Keyframes for animating the logo: starts with a width of 25px 
+  and opacity of 0, and ends with a width of 475px and opacity of 1. */
   @keyframes growFadeIn {
     from { 
       width: 25px;
@@ -30,6 +37,8 @@
     }
   }
 
+  /* Applies the growFadeIn animation to the logo, specifying that it 
+  should take 5 seconds and only happen once. */
   #logo {
     animation-name: growFadeIn; 
     animation-duration: 5s; 
@@ -37,6 +46,8 @@
     animation-timing-function: ease; 
     animation-iteration-count: 1;
   }
+/* Additional common styles for headings and paragraphs to ensure consistent 
+typography and spacing across the website. */
 
   h1{
     font-size: 2em;
@@ -53,7 +64,10 @@
   p {
     padding: 0 30px;
   }
-  
+  /* Styles for a "skip" link, used for accessibility purposes,
+  allowing users to skip to main content. The link becomes visible and accessible 
+  when focused. */
+
   a.skip{
     background: white;
     left: 0;
@@ -70,11 +84,15 @@
     color: black;
     text-decoration-style: solid;
   }
-  
+
+  /* Global focus style to highlight elements when they are focused, 
+  improving accessibility. */
   *:focus{
     border: 2px solid black;
   }
 
+/* Flexbox styling for the .nav_links class, as per requirements 
+to use flex for layout. */
   .nav_links {
     display: flex;
     justify-content: center;
@@ -82,10 +100,14 @@
     flex-direction: column;
   }
 
+/* Ensures that links have the same color regardless of their state, 
+addressing the "challenge" problem mentioned. */
   a:link, a:visited {
     color: blue;
   }
 
+  /* Additional styles for navigation items, 
+  focusing on hover and focus states to enhance user interaction feedback. */
   .nav_item a{
     padding: 10px;
   }
@@ -97,6 +119,8 @@
             text-decoration-style: dotted;
   }
 
+/* Flexbox configuration for the .pricing class to arrange elements in a responsive, 
+aligned manner. */
   .pricing{
     min-height: 475px;
     display: flex;
@@ -106,6 +130,8 @@
     justify-content: center;
   }
 
+  /* Basic card styling using flexbox to ensure that 
+  elements within each card are properly aligned and distributed. */
   .card {
     display: flex;
     flex-direction: column;
@@ -160,7 +186,12 @@
     padding: 30px;
     text-align: center;
   }
+  /* Additional styling for elements within .card, setting widths, margins, 
+  and visual styles for buttons and headings. */
 
+/* Styles for the .gallery class and its children <img> elements, 
+applying flexbox for layout, 
+and specifying border, margin, and width for each image. */
   .gallery {
     display: flex;
     flex-direction: row;
@@ -173,7 +204,11 @@
     margin: 10px;
     width: 300px;
   }
-  
+
+  /* Media query for screens wider than 900px, adjusting the layout of the header, 
+  navigation, and card elements using flexbox to achieve a specific design at 
+  larger viewport sizes. */
+
   @media screen and (min-width: 900px) {
     body {
       margin-top: 100px;
@@ -204,13 +239,16 @@
       flex-basis: 275px;
     }
   }
-
+/* Adjustments for users who prefer reduced motion, disabling animations for the logo. */
   @media (prefers-reduced-motion: reduce) {
     #logo {
       animation: none;
       transition: none;
     }
   }
+/* Print-specific styles to adjust the layout and visual appearance 
+when the page is printed, including font changes, removal of background images, 
+and adjustments to the layout of navigation, pricing, and card elements to fit print criteria. */
 
   @media print and (orientation: portrait) {
     body {
@@ -244,7 +282,7 @@
     .gallery, #gallery {
       display: none;
     }
-
+  /* Special pseudo-element styling within .card for adding content (e.g., thumbs up symbol) dynamically. */
     .card > ul li:nth-child(2)::after {
       content: "\1F44D";
     }
